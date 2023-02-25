@@ -1,0 +1,11 @@
+<div class="select-wrapper">
+    <div class="value-wrapper" (click)="showValues = !showValues">
+        <p *ngIf="value !== ''">{{value}}</p>
+        <p *ngIf="value === ''">{{placeholder}}</p>
+    </div>
+    <div class="select-values" *ngIf="showValues">
+        <div class="select-value-item" (click)="handleSelectValueClicked(item)" *ngFor="let item of values">
+            {{item}}
+        </div>
+    </div>
+</div>

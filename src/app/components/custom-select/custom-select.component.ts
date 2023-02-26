@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-custom-select',
@@ -6,21 +6,17 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./custom-select.component.css']
 })
 export class CustomSelectComponent {
-  @Input('placeholder') placeholder: string = '';
+  @Input() inputLabel: string = '';
+  @Input() placeholder: string = '';
+  @Input() inputValue: string[] = new Array();
+  @Output() onSelect: EventEmitter<any> = new EventEmitter<any>();
 
   value: string = '';
-
-  values: string[] = [
-    'value 1',
-    'value 2',
-    'value 3',
-    'value 4'
-  ];
-
   showValues = false;
 
   handleSelectValueClicked(value: string) {
     this.value = value;
+    this.onSelect.emit(this.value);
     this.showValues = false;
   }
 }

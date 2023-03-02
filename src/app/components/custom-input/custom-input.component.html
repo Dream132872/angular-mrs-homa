@@ -1,4 +1,15 @@
-<div class="input-wrapper">
-    <input [ngClass]="{'input-invalid': !isValid}" [type]="inputType" [placeholder]="placeholder" [(ngModel)]="value"
-        [required]="isRequired" (keyup)="setValue.emit(value)" [value]="value" />
+<div class="wrapper">
+    <div class="input-wrapper">
+        <label [ngClass]="{'invalid-text': !isValid}">{{label}} <span *ngIf="isRequired">*</span> </label>
+        <input [ngClass]="{'input-invalid': !isValid}" [type]="inputType" [placeholder]="placeholder"
+            [(ngModel)]="value" (focus)="isFocused = true" [required]="isRequired" (keyup)="setValue.emit(value)"
+            #inputElement />
+    </div>
+    <div class="error-messages">
+        <p *ngIf="value.length == 0 && isFocused">Please enter your email
+        </p>
+        <p *ngIf="!isValid && value.length > 0">Email is invalid</p>
+    </div>
+    <p>
+    </p>
 </div>

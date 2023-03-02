@@ -1,9 +1,26 @@
+.wrapper {
+    padding: 20px;
+}
+
 input {
     border: 1px solid #595959;
     padding: 7px;
     width: 98%;
 }
 
+.input-wrapper label {
+    margin-bottom: 10px;
+}
+
 .input-invalid {
     border-color: red;
+}
+
+.error-messages p {
+    color: red;
+    margin: 5px 0;
+}
+
+.invalid-text {
+    color: red;
 }

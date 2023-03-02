@@ -13,12 +13,17 @@ export class AppComponent {
     'item 3',
     'item 4',
   ];
+  isValid = true;
 
   handleSelectChanged(data: any) {
     console.log(data);
   }
 
-  handleInputChanged(data: any) {
-    console.log(data);
+  handleInputChanged(data: string) {
+    if (data.indexOf('@') > 0) {
+      this.isValid = true;
+    } else {
+      this.isValid = false;
+    }
   }
 }
